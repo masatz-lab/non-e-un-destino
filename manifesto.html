@@ -22,10 +22,7 @@
       padding: 4rem 2rem;
     }
 
-    .manifesto {
-      max-width: 620px;
-      width: 100%;
-    }
+    .manifesto { max-width: 620px; width: 100%; }
 
     .m-label {
       font-size: 10px;
@@ -74,6 +71,8 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .m-firma {
@@ -88,19 +87,25 @@
       letter-spacing: 0.15em;
     }
 
-    .m-back {
-      display: block;
+    .m-nav {
       margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .m-back, .m-lang {
       font-size: 11px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: #444;
       text-decoration: none;
-      text-align: center;
       transition: color 0.15s;
     }
 
-    .m-back:hover { color: #888; }
+    .m-back:hover, .m-lang:hover { color: #888; }
 
     @media (max-width: 480px) {
       body { padding: 2.5rem 1.2rem; }
@@ -150,7 +155,10 @@
       <div class="m-anno">Aprile 2026 — CC BY-NC-ND 4.0</div>
     </div>
 
-    <a href="index.html" class="m-back">← torna al documento</a>
+    <div class="m-nav">
+      <a href="index.html" class="m-back">← torna al documento</a>
+      <a href="en/manifesto.html" class="m-lang">English →</a>
+    </div>
   </div>
 </body>
 </html>
