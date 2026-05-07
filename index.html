@@ -1,328 +1,122 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Non è un destino — Masatz</title>
-  <meta name="description" content="Un tentativo di capire il sistema informativo che ci circonda. Un framework epistemico tridimensionale in italiano. Aprile 2026.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>Masatz</title>
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --nero: #111111;
-      --bianco: #f5f2ec;
-      --grigio: #888;
-      --linea: #c8c0b0;
-    }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { background: var(--bianco); color: var(--nero); }
+    html, body {
+      height: 100%;
+      background: #111111;
+      color: #f5f2ec;
+      font-family: 'Special Elite', 'Courier New', monospace;
+    }
 
     body {
-      font-family: 'Special Elite', 'Courier New', monospace;
-      font-size: 16px;
-      line-height: 1.7;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 4rem 2rem 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
     }
 
-    header {
-      border-bottom: 1px solid var(--nero);
-      padding-bottom: 2.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .numero-edizione {
-      font-size: 0.72em;
-      letter-spacing: 0.2em;
+    .label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--grigio);
-      margin-bottom: 1.5rem;
-      display: block;
+      color: #444;
+      margin-bottom: 3rem;
+      text-align: center;
     }
 
     h1 {
-      font-family: 'Special Elite', monospace;
-      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-size: clamp(2rem, 8vw, 4rem);
       font-weight: normal;
-      line-height: 1.1;
       letter-spacing: -0.01em;
-      margin-bottom: 0.6rem;
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: 0.5rem;
     }
 
     .sottotitolo {
-      font-family: 'Special Elite', monospace;
+      font-size: 0.9em;
+      color: #666;
       font-style: italic;
-      font-size: 1.05em;
-      color: #444;
-      margin-bottom: 1.8rem;
+      text-align: center;
+      margin-bottom: 4rem;
     }
 
-    .tag-livelli {
+    .lang-choice {
       display: flex;
-      gap: 0.6rem;
+      gap: 2rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .tag {
-      font-size: 0.68em;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border: 1px solid var(--nero);
-      padding: 0.2em 0.6em;
-      display: inline-block;
-    }
-
-    .documento-intro { margin-bottom: 3rem; }
-
-    .documento-intro p {
+    .lang-btn {
       font-family: 'Special Elite', monospace;
-      font-size: 1em;
-      line-height: 1.75;
-      margin-bottom: 1em;
-      color: #222;
-    }
-
-    .contiene {
-      margin: 2rem 0;
-      border-top: 1px solid var(--linea);
-      border-bottom: 1px solid var(--linea);
-      padding: 1.2rem 0;
-    }
-
-    .contiene-titolo {
-      font-size: 0.68em;
+      font-size: 0.8em;
       letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--grigio);
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-
-    .contiene ul { list-style: none; padding: 0; }
-
-    .contiene ul li {
-      font-size: 0.88em;
-      padding: 0.15em 0;
-      color: #333;
-    }
-
-    .contiene ul li::before { content: "— "; color: var(--grigio); }
-
-    .download-section { margin: 2.5rem 0; }
-
-    .btn-download {
-      display: inline-block;
-      font-family: 'Special Elite', monospace;
-      font-size: 0.85em;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--bianco);
-      background: var(--nero);
-      padding: 0.9em 2em;
-      border: 1px solid var(--nero);
-      transition: background 0.15s, color 0.15s;
+      color: #f5f2ec;
+      border: 1px solid #333;
+      padding: 1em 2.5em;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
     }
 
-    .btn-download:hover { background: var(--bianco); color: var(--nero); }
+    .lang-btn:hover {
+      border-color: #f5f2ec;
+    }
 
-    .licenza-nota {
+    .lang-btn .lang-name {
+      display: block;
+      font-size: 1.3em;
+      margin-bottom: 0.3em;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn .lang-sub {
+      display: block;
       font-size: 0.75em;
-      color: var(--grigio);
-      margin-top: 0.8rem;
-      display: block;
-    }
-
-    .sep { border: none; border-top: 1px solid var(--linea); margin: 3rem 0; }
-
-    .autore-label {
-      font-size: 0.68em;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--grigio);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .autore-bio {
-      font-family: 'Special Elite', monospace;
-      font-size: 0.97em;
-      line-height: 1.8;
-      color: #333;
-    }
-
-    .autore-bio p { margin-bottom: 0.9em; }
-
-    .framework { margin: 3rem 0; }
-
-    .framework-titolo {
-      font-size: 0.68em;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--grigio);
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-
-    .livello {
-      display: flex;
-      gap: 1.2rem;
-      margin-bottom: 1.2rem;
-      align-items: flex-start;
-    }
-
-    .livello-num {
-      font-size: 1.8em;
-      line-height: 1;
-      color: var(--linea);
-      flex-shrink: 0;
-      width: 1.2em;
-    }
-
-    .livello-testo strong {
-      display: block;
-      font-weight: normal;
-      font-size: 0.85em;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.2em;
-    }
-
-    .livello-testo span {
-      font-family: 'Special Elite', monospace;
-      font-size: 0.9em;
       color: #555;
-      font-style: italic;
+      letter-spacing: 0.15em;
     }
 
     footer {
-      border-top: 1px solid var(--nero);
-      padding-top: 1.5rem;
-      margin-top: 4rem;
-      font-size: 0.75em;
-      color: var(--grigio);
-      letter-spacing: 0.05em;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .lang-switch {
-      font-size: 0.75em;
+      position: fixed;
+      bottom: 1.5rem;
+      font-size: 10px;
       letter-spacing: 0.15em;
+      color: #333;
       text-transform: uppercase;
-      color: var(--grigio);
-      text-decoration: none;
-      border-bottom: 1px solid var(--linea);
-      padding-bottom: 1px;
-      transition: color 0.15s;
-    }
-
-    .lang-switch:hover { color: var(--nero); }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    header, .documento-intro, .download-section, .framework, .autore-section {
-      animation: fadeUp 0.6s ease both;
-    }
-
-    .documento-intro { animation-delay: 0.1s; }
-    .download-section { animation-delay: 0.2s; }
-    .framework { animation-delay: 0.25s; }
-    .autore-section { animation-delay: 0.3s; }
-
-    @media (max-width: 480px) {
-      body { padding: 2.5rem 1.2rem 4rem; }
-      h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <span class="numero-edizione">Aprile 2026 — Prima edizione</span>
-    <h1>Non è un destino</h1>
-    <p class="sottotitolo">Un tentativo di capire il sistema informativo che ci circonda</p>
-    <div class="tag-livelli">
-      <span class="tag">01 Tattico</span>
-      <span class="tag">02 Relazionale</span>
-      <span class="tag">03 Strategico</span>
-    </div>
-  </header>
+  <div class="label">Masatz — Aprile 2026</div>
 
-  <section class="documento-intro">
-    <p>Un framework epistemico tridimensionale per orientarsi nel sistema informativo contemporaneo. Non un manuale, non una risposta definitiva. Uno strumento per fare una pausa, guardarsi dall'esterno mentre si legge, chiedersi chi guadagna dalla propria reazione immediata.</p>
-    <p>Con un esempio sull'economia italiana che attraversa tutto il documento.</p>
+  <h1>Non è un destino</h1>
+  <p class="sottotitolo">Not by chance</p>
 
-    <div class="contiene">
-      <span class="contiene-titolo">Questo documento include</span>
-      <ul>
-        <li>Nota di metodo</li>
-        <li>Segnali osservabili per ogni livello</li>
-        <li>Guida pratica con versione sotto stress</li>
-        <li>Storia del sistema informativo dal Medioevo a oggi</li>
-        <li>Glossario, autovalutazione, riferimenti</li>
-        <li>Nota dell'autore</li>
-      </ul>
-    </div>
-  </section>
+  <div class="lang-choice">
+    <a href="it/index.html" class="lang-btn">
+      <span class="lang-name">Italiano</span>
+      <span class="lang-sub">Prima edizione</span>
+    </a>
+    <a href="en/index.html" class="lang-btn">
+      <span class="lang-name">English</span>
+      <span class="lang-sub">First edition</span>
+    </a>
+  </div>
 
-  <section class="download-section">
-    <a href="non_e_un_destino.pdf" class="btn-download" download>Scarica il documento — PDF</a>
-    <span class="licenza-nota">Condivisione libera con attribuzione, senza modifiche, senza uso commerciale.<br>Licenza Creative Commons BY-NC-ND 4.0</span>
-    <a href="manifesto.html" style="display:inline-block; margin-top:1.2rem; font-family:'Special Elite',monospace; font-size:0.75em; letter-spacing:0.15em; text-transform:uppercase; color:#888; text-decoration:none; border-bottom:1px solid #c8c0b0; padding-bottom:2px;">Leggi il manifesto →</a>
-  </section>
-
-  <hr class="sep">
-
-  <section class="framework">
-    <span class="framework-titolo">Il framework tridimensionale</span>
-    <div class="livello">
-      <span class="livello-num">01</span>
-      <div class="livello-testo">
-        <strong>Tattico</strong>
-        <span>Sopravvivenza cognitiva nel quotidiano. Pausa, fonte primaria, triangolazione, domanda ritardata.</span>
-      </div>
-    </div>
-    <div class="livello">
-      <span class="livello-num">02</span>
-      <div class="livello-testo">
-        <strong>Relazionale</strong>
-        <span>Cultura del dubbio condiviso. Non alimentare il loop. Archeologia epistemica.</span>
-      </div>
-    </div>
-    <div class="livello">
-      <span class="livello-num">03</span>
-      <div class="livello-testo">
-        <strong>Strategico</strong>
-        <span>Politica dell'infrastruttura. Critica degli incentivi. Riforma della strada.</span>
-      </div>
-    </div>
-  </section>
-
-  <hr class="sep">
-
-  <section class="autore-section">
-    <span class="autore-label">Chi è Masatz</span>
-    <div class="autore-bio">
-      <p>Informatico. Appassionato di geopolitica, privacy e sistemi complessi.</p>
-      <p>A un certo punto ho smesso di leggere le news. Non i telegiornali — quelli li avevo già abbandonati. Parlo dei giornali, dei siti, delle fonti che consideravo serie. Poi ho cominciato ad avere una sensazione strana: come se dietro le singole notizie ci fosse un modello. Non una cospirazione, niente di così preciso. Qualcosa di più sottile.</p>
-      <p>Quella consapevolezza non mi ha reso sospettoso di tutto. Mi ha reso curioso di come funziona. Questo documento è il risultato di quel lavoro.</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© Masatz, 2026 — CC BY-NC-ND 4.0</p>
-    <a href="en/index.html" class="lang-switch">English version →</a>
-  </footer>
+  <footer>© Masatz 2026 — CC BY-NC-ND 4.0</footer>
 
 </body>
 </html>
