@@ -15,16 +15,9 @@
       --linea: #c8c0b0;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html {
-      background: var(--bianco);
-      color: var(--nero);
-    }
+    html { background: var(--bianco); color: var(--nero); }
 
     body {
       font-family: 'Special Elite', 'Courier New', monospace;
@@ -35,7 +28,6 @@
       padding: 4rem 2rem 6rem;
     }
 
-    /* HEADER */
     header {
       border-bottom: 1px solid var(--nero);
       padding-bottom: 2.5rem;
@@ -83,10 +75,7 @@
       display: inline-block;
     }
 
-    /* DOCUMENTO */
-    .documento-intro {
-      margin-bottom: 3rem;
-    }
+    .documento-intro { margin-bottom: 3rem; }
 
     .documento-intro p {
       font-family: 'Special Elite', monospace;
@@ -112,10 +101,7 @@
       display: block;
     }
 
-    .contiene ul {
-      list-style: none;
-      padding: 0;
-    }
+    .contiene ul { list-style: none; padding: 0; }
 
     .contiene ul li {
       font-size: 0.88em;
@@ -123,15 +109,9 @@
       color: #333;
     }
 
-    .contiene ul li::before {
-      content: "— ";
-      color: var(--grigio);
-    }
+    .contiene ul li::before { content: "— "; color: var(--grigio); }
 
-    /* DOWNLOAD */
-    .download-section {
-      margin: 2.5rem 0;
-    }
+    .download-section { margin: 2.5rem 0; }
 
     .btn-download {
       display: inline-block;
@@ -147,10 +127,7 @@
       transition: background 0.15s, color 0.15s;
     }
 
-    .btn-download:hover {
-      background: var(--bianco);
-      color: var(--nero);
-    }
+    .btn-download:hover { background: var(--bianco); color: var(--nero); }
 
     .licenza-nota {
       font-size: 0.75em;
@@ -159,14 +136,8 @@
       display: block;
     }
 
-    /* SEPARATORE */
-    .sep {
-      border: none;
-      border-top: 1px solid var(--linea);
-      margin: 3rem 0;
-    }
+    .sep { border: none; border-top: 1px solid var(--linea); margin: 3rem 0; }
 
-    /* AUTORE */
     .autore-label {
       font-size: 0.68em;
       letter-spacing: 0.2em;
@@ -183,14 +154,9 @@
       color: #333;
     }
 
-    .autore-bio p {
-      margin-bottom: 0.9em;
-    }
+    .autore-bio p { margin-bottom: 0.9em; }
 
-    /* FRAMEWORK */
-    .framework {
-      margin: 3rem 0;
-    }
+    .framework { margin: 3rem 0; }
 
     .framework-titolo {
       font-size: 0.68em;
@@ -232,7 +198,6 @@
       font-style: italic;
     }
 
-    /* FOOTER */
     footer {
       border-top: 1px solid var(--nero);
       padding-top: 1.5rem;
@@ -240,9 +205,26 @@
       font-size: 0.75em;
       color: var(--grigio);
       letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    /* FADE IN */
+    .lang-switch {
+      font-size: 0.75em;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grigio);
+      text-decoration: none;
+      border-bottom: 1px solid var(--linea);
+      padding-bottom: 1px;
+      transition: color 0.15s;
+    }
+
+    .lang-switch:hover { color: var(--nero); }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -339,6 +321,7 @@
 
   <footer>
     <p>© Masatz, 2026 — CC BY-NC-ND 4.0</p>
+    <a href="en/index.html" class="lang-switch">English version →</a>
   </footer>
 
 </body>
