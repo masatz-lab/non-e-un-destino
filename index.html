@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prima del primo impulso — Non è un destino</title>
+  <meta name="description" content="Un metodo personale per osservare cosa succede prima della reazione.">
+  <style>
+    @font-face {
+      font-family: "Courier Prime";
+      src: url("CourierPrime-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Courier Prime";
+      src: url("CourierPrime-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Courier Prime";
+      src: url("CourierPrime-Italic.ttf") format("truetype");
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    @font-face {
+      font-family: "Courier Prime";
+      src: url("CourierPrime-BoldItalic.ttf") format("truetype");
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    :root {
+      --paper: #f5f2ec;
+      --ink: #111111;
+      --muted: #6f685f;
+      --line: #c8c0b0;
+      --soft: #ede7dc;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Courier Prime", "Courier New", monospace;
+      font-size: 18px;
+      line-height: 1.62;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem 5rem;
+    }
+
+    header {
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .meta-top {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 9vw, 5.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      margin: 0 0 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      max-width: 620px;
+      font-size: 1.12rem;
+      color: #2d2925;
+      margin: 0;
+    }
+
+    .block {
+      margin: 2.7rem 0;
+    }
+
+    .block p {
+      margin: 0 0 1rem;
+      max-width: 650px;
+    }
+
+    .signals {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 1.35rem 0;
+      margin: 2.6rem 0;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+
+    .natural-label {
+      font-size: 0.95rem;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .signals ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .signals li {
+      margin: 0.28rem 0;
+    }
+
+    .signals li::before {
+      content: "— ";
+      color: var(--muted);
+    }
+
+    .negative {
+      margin-top: 2.4rem;
+      padding-left: 1.2rem;
+      border-left: 1px solid var(--line);
+    }
+
+    .negative p {
+      margin: 0 0 0.75rem;
+    }
+
+    .bridge {
+      margin: 3rem 0;
+      padding: 1.4rem 0;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .bridge strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1.35;
+      letter-spacing: -0.045em;
+      max-width: 620px;
+    }
+
+    .download {
+      margin: 2.8rem 0;
+    }
+
+    .download p {
+      margin: 0 0 1.2rem;
+      color: #302c27;
+      max-width: 620px;
+    }
+
+    .button {
+      display: inline-block;
+      color: var(--paper);
+      background: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      padding: 0.95rem 1.2rem 0.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .button:hover {
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .small a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      width: fit-content;
+    }
+
+    .author-note {
+      margin-top: 3.4rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.95rem;
+      color: #37322d;
+    }
+
+    .author-note p {
+      margin: 0 0 0.8rem;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    footer strong {
+      color: var(--ink);
+    }
+
+    @media (max-width: 620px) {
+      body { font-size: 16px; }
+      .page { padding: 3rem 1.2rem 4rem; }
+      h1 { letter-spacing: -0.06em; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="meta-top">Non è un destino — maggio 2026</div>
+      <h1>Prima del primo impulso</h1>
+      <p class="subtitle">Un metodo personale per osservare cosa succede prima della reazione.</p>
+    </header>
+
+    <section class="block">
+      <p>A volte non reagisco solo a una notizia.</p>
+      <p>Reagisco anche al modo in cui mi viene presentata.</p>
+    </section>
+
+    <section class="signals">
+      <span class="label natural-label">Alcuni segnali che provo a osservare:</span>
+      <ul>
+        <li>Un titolo urgente.</li>
+        <li>Una fonte vaga.</li>
+        <li>Una frase che chiede di condividere subito.</li>
+        <li>Un contesto che manca.</li>
+      </ul>
+    </section>
+
+    <section class="negative">
+      <p>Non per stabilire una conclusione.</p>
+            <p>Ma per osservare il momento in cui un messaggio comincia a farmi reagire.</p>
+    </section>
+
+    <section class="bridge">
+      <strong>A volte basta non aggiungere velocità al primo impulso.</strong>
+    </section>
+
+    <section class="download">
+      <a class="button" href="non_e_un_destino_v2.pdf" download>Scarica il PDF</a>
+
+      <div class="small">
+        <span>© Masatz, 2026 · Creative Commons BY-NC-ND 4.0</span>
+        <a href="en/index.html">English version →</a>
+      </div>
+    </section>
+
+    <section class="author-note">
+      <span class="label">Nota</span>
+      <p>Non è una regola da seguire. È un metodo che sto provando a usare.</p>
+      <p>È un confronto, non una lezione.</p>
+    </section>
+</main>
+</body>
+</html>
